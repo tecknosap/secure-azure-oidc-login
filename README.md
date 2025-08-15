@@ -115,8 +115,7 @@ Contributions are welcome! Whether it’s bug fixes, workflow improvements, or d
 
 ## License
 
-This project is licensed under the MIT License. You are free to use, modify, and distribute this project in accordance with the license. # updated
-
+This project is licensed under the MIT License. You are free to use, modify, and distribute this project in accordance with the license.
 ---
 
 ## References
