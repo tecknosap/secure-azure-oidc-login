@@ -41,9 +41,10 @@ This project addresses these problems by using token-based authentication with O
    - Uses `azure/login@v1` to authenticate to Azure using OIDC tokens  
    - Executes Azure CLI commands to validate access  
 
-4. **GitHub Secrets** *(minimal)*  
-   - Stores identifiers such as `AZURE_SUBSCRIPTION_ID`  
-   - `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` may be hardcoded or inferred  
+4. **GitHub Secrets (non-sensitive identifiers)**  
+   - Stores values such as `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`  
+   - These are required for the workflow to target the correct Azure resources  
+   - While not secrets, storing them in GitHub Secrets avoids hardcoding and improves maintainability  
 
 ---
 
@@ -64,11 +65,11 @@ This project addresses these problems by using token-based authentication with O
    - Specify the trusted repository and branch for token issuance  
 
 2. **Assign Azure Role to the App Registration**  
-   - Use least-privilege roles (e.g., Contributor or custom role scoped to resources)  
+   - Use least-privilege roles (e.g., Contributor or a custom role scoped to resources)  
    - Assign the role to the app registration’s identity in the subscription or resource group  
 
 3. **Configure GitHub Repository Secrets**  
-   - Store `AZURE_SUBSCRIPTION_ID`  
+   - Store `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`  
    - Ensure `id-token` permission is granted in the workflow  
 
 4. **Create GitHub Actions Workflow**  
@@ -79,7 +80,8 @@ This project addresses these problems by using token-based authentication with O
      - Optionally verify access with Azure CLI  
 
 5. **Test and Validate**  
-   - Push the workflow to GitHub and confirm it triggers  
+   - Commit and push the workflow to GitHub  
+   - Confirm it triggers on the target branch  
    - Validate that Azure CLI commands execute successfully without secrets  
 
 ---
