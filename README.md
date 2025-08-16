@@ -104,7 +104,7 @@ No manual secret management is required in the CI/CD pipeline.
 ---
 
 ## Solution architecture
-![Solution Architecture](oidc-architecture.png)
+![Architecture Diagram](oidc-architecture.png)
 ---
 
 ## Contributing
