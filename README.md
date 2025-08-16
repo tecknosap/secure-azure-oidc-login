@@ -131,4 +131,4 @@ This project is licensed under the MIT License. You are free to use, modify, and
 - [GitHub Actions: Azure Login](https://github.com/Azure/login)
 ```
 
-
+![Architecture Diagram](https://github.com/tecknosap/secure-azure-oidc-login/blob/main/asset/oidc-architecture.png)
