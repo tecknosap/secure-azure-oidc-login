@@ -104,6 +104,7 @@ No manual secret management is required in the CI/CD pipeline.
 ---
 
 ## Solution architecture
+#testing the image
 ![Architecture Diagram](oidc-architecture.png)
 ---
 
@@ -129,5 +130,3 @@ This project is licensed under the MIT License. You are free to use, modify, and
 ```
 
 
-## Solution architecture
-![Architecture Diagram](oidc-architecture.png)
