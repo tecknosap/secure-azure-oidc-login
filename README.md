@@ -1,6 +1,6 @@
 # Project 1: Secure Azure Login with OIDC
 
-## 🔍 Overview
+## 🔍 Project Summary
 
 This project demonstrates how to securely connect GitHub Actions workflows to Azure using OpenID Connect (OIDC), eliminating the need to store long-lived client secrets in CI/CD pipelines. By leveraging federated identity, this approach reduces security risks and simplifies credential management in automated workflows.
 
@@ -21,67 +21,66 @@ This project addresses these problems by using token-based authentication with O
 ## 🎯 Project Goals
 
 - Enable secure authentication between GitHub Actions and Azure without storing secrets  
-- Implement least-privilege access using Azure service principals  
+- Implement least-privilege access using Azure role assignments  
 - Demonstrate a zero-secret authentication flow  
-- Validate connectivity via a GitHub Actions workflow with Azure CLI commands  
+- Confirm access via a GitHub Actions workflow using Azure CLI  
 
 ---
 
 ## 🧩 Key Components
 
 1. **Azure AD App Registration**  
-   - Configured with a federated credential that trusts GitHub repositories  
+   - Configured with a federated credential that trusts a GitHub repository and branch  
+   - Acts as the identity used for authentication via OIDC  
 
-2. **Service Principal (SP)**  
-   - Derived from the app registration and used for scoped access to Azure resources  
-   - Authenticates via federated identity (not client secrets)  
+2. **Federated Credential**  
+   - Defines the trust relationship between GitHub and Azure AD  
+   - Allows GitHub Actions to request tokens without secrets  
 
 3. **GitHub Actions Workflow**  
    - Uses `azure/login@v1` to authenticate to Azure using OIDC tokens  
+   - Executes Azure CLI commands to validate access  
 
-4. **GitHub Secrets** *(optional)*  
+4. **GitHub Secrets** *(minimal)*  
    - Stores identifiers such as `AZURE_SUBSCRIPTION_ID`  
-   - `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` may be inferred from the federated setup  
+   - `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` may be hardcoded or inferred  
 
 ---
 
 ## 💼 Business Impact
 
-- Secures pipelines by removing embedded secrets  
-- Enables auditable and automated deployments in Azure  
+- Secures CI/CD pipelines by removing embedded secrets  
+- Enables auditable and automated deployments to Azure  
 - Reduces operational overhead and improves developer productivity  
-- Supports enterprise compliance requirements for identity management  
+- Supports enterprise compliance requirements for identity and access management  
 
 ---
 
 ## ⚙️ Implementation Steps
 
-1. **Register Azure AD Application**  
-   - Create an Azure AD app registration  
+1. **Create Azure AD App Registration**  
+   - Register a new application in Azure AD  
    - Configure a federated credential for GitHub Actions  
-   - Specify trusted repository and branch for token issuance  
+   - Specify the trusted repository and branch for token issuance  
 
-2. **Create a Service Principal (SP)**  
-   - The SP is automatically associated with the app registration  
-   - No client secret is required  
+2. **Assign Azure Role to the App Registration**  
+   - Use least-privilege roles (e.g., Contributor or custom role scoped to resources)  
+   - Assign the role to the app registration’s identity in the subscription or resource group  
 
-3. **Assign Permissions**  
-   - Apply least-privilege roles (e.g., Contributor or custom role scoped to resources)  
-
-4. **Configure GitHub Repository Secrets**  
+3. **Configure GitHub Repository Secrets**  
    - Store `AZURE_SUBSCRIPTION_ID`  
    - Ensure `id-token` permission is granted in the workflow  
 
-5. **Create GitHub Actions Workflow**  
-   - Place the YAML file under `.github/workflows/`  
+4. **Create GitHub Actions Workflow**  
+   - Place the workflow YAML file under `.github/workflows/`  
    - Configure steps to:  
      - Checkout code  
      - Authenticate to Azure using OIDC  
      - Optionally verify access with Azure CLI  
 
-6. **Test and Validate**  
-   - Push workflow to GitHub and confirm it triggers  
-   - Validate Azure CLI commands execute successfully without secrets  
+5. **Test and Validate**  
+   - Push the workflow to GitHub and confirm it triggers  
+   - Validate that Azure CLI commands execute successfully without secrets  
 
 ---
 
@@ -90,7 +89,7 @@ This project addresses these problems by using token-based authentication with O
 Once configured:
 
 1. Developers push changes to the target branch (e.g., `main`)  
-2. GitHub Actions triggers the workflow  
+2. GitHub Actions automatically triggers the workflow  
 3. The workflow authenticates to Azure using federated identity  
 4. Azure resources are managed securely, with full auditability  
 
@@ -100,8 +99,8 @@ No manual secret management is required in the CI/CD pipeline.
 
 ## 📋 Prerequisites
 
-- Azure subscription with administrative rights  
-- GitHub repository with administrative access  
+- Azure subscription with administrative access  
+- GitHub repository with admin permissions  
 - Familiarity with GitHub Actions and Azure identity management  
 
 ---
@@ -130,5 +129,5 @@ This project is licensed under the MIT Licence. You are free to use, modify, and
 
 ## 📚 References
 
-- [Azure AD Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation-create-trust)  
+- [Azure AD Workload Identity Federation](https://learn.microsoft.com/en-gb/azure/active-directory/develop/workload-identity-federation-create-trust)  
 - [GitHub Actions: Azure Login](https://github.com/Azure/login)
