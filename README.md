@@ -103,6 +103,10 @@ No manual secret management is required in the CI/CD pipeline.
 
 ---
 
+## Solution architecture
+![Solution Architecture](oidc-architecture.png)
+---
+
 ## Contributing
 
 Contributions are welcome! Whether it’s bug fixes, workflow improvements, or documentation enhancements, feel free to submit a pull request. Please follow standard GitHub workflow practices:
