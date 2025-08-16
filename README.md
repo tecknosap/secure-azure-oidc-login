@@ -105,7 +105,7 @@ No manual secret management is required in the CI/CD pipeline.
 
 ## Solution architecture
 
-![Architecture Diagram](https://github.com/tecknosap/secure-azure-oidc-login/blob/main/asset/OIC-MAIN.gif)
+![Architecture Diagram](https://github.com/tecknosap/secure-azure-oidc-login/blob/main/asset/oidc-architecture.gif)
 ---
 
 ## Contributing
