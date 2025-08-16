@@ -105,8 +105,6 @@ No manual secret management is required in the CI/CD pipeline.
 
 ## Solution architecture
 
-## Solution architecture
-
 ![Architecture Diagram](https://github.com/tecknosap/secure-azure-oidc-login/blob/main/asset/oidc-architecture.png)
 ---
 
@@ -131,4 +129,3 @@ This project is licensed under the MIT License. You are free to use, modify, and
 - [GitHub Actions: Azure Login](https://github.com/Azure/login)
 ```
 
-![Architecture Diagram](https://github.com/tecknosap/secure-azure-oidc-login/blob/main/asset/oidc-architecture.png)
