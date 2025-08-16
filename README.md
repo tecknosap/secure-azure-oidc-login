@@ -127,3 +127,7 @@ This project is licensed under the MIT License. You are free to use, modify, and
 - [Azure AD Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation-create-trust)  
 - [GitHub Actions: Azure Login](https://github.com/Azure/login)
 ```
+
+
+## Solution architecture
+![Architecture Diagram](oidc-architecture.png)
