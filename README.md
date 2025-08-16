@@ -105,12 +105,9 @@ No manual secret management is required in the CI/CD pipeline.
 
 ## Solution architecture
 
-<div style="margin-bottom: 20px; text-align: center;">
-    <img src="https://github.com/user-attachments/assets/e0c43834-13df-4339-bebd-1e793a781741" 
-         alt="Architecture Diagram" 
-         width="600" 
-         height="300" />
-</div>
+## Solution architecture
+
+![Architecture Diagram](https://github.com/user-attachments/assets/e0c43834-13df-4339-bebd-1e793a781741)
 ---
 
 ## Contributing
