@@ -1,4 +1,4 @@
-```markdown
+
 # Project 1: Secure Azure Login with OIDC
 
 ## Overview
