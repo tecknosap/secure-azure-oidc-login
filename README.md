@@ -14,7 +14,7 @@ Many organisations face challenges with secrets in CI/CD pipelines:
 - Storing static secrets in repositories or environments can lead to leaks  
 - Maintaining secret access for multiple pipelines slows down delivery velocity  
 
-This project addresses these problems by using token-based authentication with OIDC, providing a secure, automated, and auditable method for Azure resource management from GitHub workflows.
+This project addresses these issues by using token-based authentication with OIDC, providing a secure, automated, and auditable method for managing Azure resources from GitHub workflows.
 
 ---
 
